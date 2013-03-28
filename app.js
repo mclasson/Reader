@@ -29,10 +29,10 @@ app.configure(function(){
 app.configure('development', function() {
     console.log('Using development settings.');
     app.set('connection', mysql.createConnection({
-        host: '',
-        user: '',
-        port: '',
-        password: ''}));
+        host: 'localhost',
+        user: 'node',
+        port: '3306',
+        password: 'Peppermint2012'}));
     app.use(express.errorHandler());
 });
 
@@ -44,16 +44,17 @@ app.configure('production', function() {
         password: process.env.RDS_PASSWORD,
         port: process.env.RDS_PORT}));
 });
+function init() {
+    app.get('/', routes.index);
+    app.get('/users', user.list);
+    app.get('/hikes', hike.index);
+    app.post('/add_hike', hike.add_hike);
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/hikes', hike.index);
-app.post('/add_hike', hike.add_hike);
+    http.createServer(app).listen(app.get('port'), function(){
+      console.log("Express server listening on port " + app.get('port'));
+    });
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
-
+}
 var client = app.get('connection');
 async.series([
     function connect(callback) {
