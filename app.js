@@ -59,7 +59,8 @@ var client = app.get('connection');
 async.series([
     function connect(callback) {
         client.connect(callback);
-    },
+    }
+    /*,
     function clear(callback) {
         client.query('DROP DATABASE IF EXISTS mynode_db', callback);
     },
@@ -83,7 +84,7 @@ async.series([
         var hike = {HIKE_DATE: new Date(), NAME: 'Hazard Stevens',
             LOCATION: 'Mt Rainier', DISTANCE: '4,027m vertical', WEATHER:'Bad'};
         client.query('INSERT INTO HIKES set ?', hike, callback);
-    }
+    } */
 ], function (err, results) {
     if (err) {
         console.log('Exception initializing database.');
