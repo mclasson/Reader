@@ -5,7 +5,30 @@ html
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     body
-        block content
+        .navbar.navbar-inverse.navbar-fixed-top
+            .navbar-inner
+                .container-fluid
+                    a(class="brand", href="#") Reader
+                    .nav-collapse.collapse
+                        - if (true == user.isAuthenticated)
+                            p.navbar-text.pull-right Logged in as &nbsp;
+                                a(href="#",class="navbar-link") #{user.name}
+                        - else
+                            p.navbar-text.pull-right Not logged in
+            .container-fluid
+                - if(!user.isAuthenticated)
+                    .hero-unit
+                        h1 Rss aggregator
+                        p Part learning, part useful
+                        p
+                            a(href="/auth/twitter")
+                                img(src="/images/sign-in-with-twitter-gray.png")
+                - else
+                    .row-fluid
+                        .span3
+                            well.sidebar-nav
+                        .span9
+                            .row-fluid
 
-        script(src="http://code.jquery.com/jquery.js")
-        script(src="/javascripts/bootstrap.min.js")
+
+
