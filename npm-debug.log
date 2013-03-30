@@ -1,0 +1,366 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'client-sessions' ]
+2 info using npm@1.2.11
+3 info using node@v0.8.21
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 verbose read json X:\Projects\Reader\package.json
+6 warn package.json application-name@0.0.1 No README.md file found!
+7 verbose read json X:\Projects\Reader\node_modules\async\package.json
+8 verbose read json X:\Projects\Reader\node_modules\express\package.json
+9 verbose read json X:\Projects\Reader\node_modules\jade\package.json
+10 verbose read json X:\Projects\Reader\node_modules\mysql\package.json
+11 verbose read json X:\Projects\Reader\node_modules\node-uuid\package.json
+12 verbose read json X:\Projects\Reader\node_modules\nodemon\package.json
+13 verbose read json X:\Projects\Reader\node_modules\oauth\package.json
+14 verbose from cache X:\Projects\Reader\package.json
+15 verbose readDependencies using package.json deps
+16 verbose cache add [ 'client-sessions', null ]
+17 verbose cache add name=undefined spec="client-sessions" args=["client-sessions",null]
+18 verbose parsed url { pathname: 'client-sessions',
+18 verbose parsed url   path: 'client-sessions',
+18 verbose parsed url   href: 'client-sessions' }
+19 silly lockFile acc89396-client-sessions client-sessions
+20 verbose lock client-sessions C:\Users\Marcus\AppData\Roaming\npm-cache\acc89396-client-sessions.lock
+21 silly lockFile acc89396-client-sessions client-sessions
+22 silly lockFile acc89396-client-sessions client-sessions
+23 verbose addNamed [ 'client-sessions', '' ]
+24 verbose addNamed [ null, '' ]
+25 silly lockFile d5fa4bc7-client-sessions client-sessions@
+26 verbose lock client-sessions@ C:\Users\Marcus\AppData\Roaming\npm-cache\d5fa4bc7-client-sessions.lock
+27 silly addNameRange { name: 'client-sessions', range: '', hasData: false }
+28 verbose url raw client-sessions
+29 verbose url resolving [ 'https://registry.npmjs.org/', './client-sessions' ]
+30 verbose url resolved https://registry.npmjs.org/client-sessions
+31 info trying registry request attempt 1 at 20:07:19
+32 verbose etag "A4DZNHE8VKOO35TCT5TYBC6L"
+33 http GET https://registry.npmjs.org/client-sessions
+34 http 304 https://registry.npmjs.org/client-sessions
+35 silly registry.get cb [ 304,
+35 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B03)',
+35 silly registry.get     etag: '"A4DZNHE8VKOO35TCT5TYBC6L"',
+35 silly registry.get     date: 'Sat, 30 Mar 2013 19:07:30 GMT',
+35 silly registry.get     'content-length': '0' } ]
+36 verbose etag client-sessions from cache
+37 silly addNameRange number 2 { name: 'client-sessions', range: '', hasData: true }
+38 silly addNameRange versions [ 'client-sessions',
+38 silly addNameRange   [ '0.0.2',
+38 silly addNameRange     '0.0.3',
+38 silly addNameRange     '0.0.4',
+38 silly addNameRange     '0.0.5',
+38 silly addNameRange     '0.0.6',
+38 silly addNameRange     '0.0.7',
+38 silly addNameRange     '0.0.8',
+38 silly addNameRange     '0.0.9',
+38 silly addNameRange     '0.1.0',
+38 silly addNameRange     '0.1.1' ] ]
+39 verbose addNamed [ 'client-sessions', '0.1.1' ]
+40 verbose addNamed [ '0.1.1', '0.1.1' ]
+41 silly lockFile f7cfcb9d-client-sessions-0-1-1 client-sessions@0.1.1
+42 verbose lock client-sessions@0.1.1 C:\Users\Marcus\AppData\Roaming\npm-cache\f7cfcb9d-client-sessions-0-1-1.lock
+43 verbose read json C:\Users\Marcus\AppData\Roaming\npm-cache\client-sessions\0.1.1\package\package.json
+44 silly lockFile f7cfcb9d-client-sessions-0-1-1 client-sessions@0.1.1
+45 silly lockFile f7cfcb9d-client-sessions-0-1-1 client-sessions@0.1.1
+46 silly lockFile d5fa4bc7-client-sessions client-sessions@
+47 silly lockFile d5fa4bc7-client-sessions client-sessions@
+48 silly resolved [ { name: 'client-sessions',
+48 silly resolved     version: '0.1.1',
+48 silly resolved     private: false,
+48 silly resolved     description: 'secure sessions stored in cookies',
+48 silly resolved     main: 'lib/client-sessions',
+48 silly resolved     repository:
+48 silly resolved      { type: 'git',
+48 silly resolved        url: 'https://github.com/mozilla/node-client-sessions' },
+48 silly resolved     dependencies: { cookies: '0.2.1', 'node-proxy': '0.6.0' },
+48 silly resolved     devDependencies:
+48 silly resolved      { vows: '0.5.13',
+48 silly resolved        express: '2.5.0',
+48 silly resolved        tobi: 'https://github.com/Cowboy-coder/tobi/tarball/fd733a3',
+48 silly resolved        zombie: '1.4.1' },
+48 silly resolved     author: { name: 'Ben Adida', email: 'ben@adida.net' },
+48 silly resolved     scripts: { test: 'vows --spec' },
+48 silly resolved     engines: { node: '>= 0.8.0' },
+48 silly resolved     readme: '[![build status](https://secure.travis-ci.org/mozilla/node-client-sessions.png)](http://travis-ci.org/mozilla/node-client-sessions)\n\nSecure sessions stored in cookies, for node.js\nMiddleware for Connect / Express apps.\n\nSession content is secure and tamper-free.\n\nThis does *not* use connect\'s built-int session middleware, because,\nif it did, things would get nasty in implementation given the conflict\nbetween the session ID and the session content itself. Also, this library\nuses its own cookie parser so that setup is easier and less error-prone.\n\nI don\'t recommend using both this middleware and connect\'s built-in\nsession middleware.\n\n\nAPI\n===\n\n    var clientSessions = require("client-sessions");\n    app.use(clientSessions({\n        cookieName: \'session_state\',    // defaults to session_state\n        secret: \'blargadeeblargblarg\', // MUST be set\n        // true session duration:\n        // will expire after duration (ms)\n        // from last session.reset() or\n        // initial cookieing.\n        duration: 24 * 60 * 60 * 1000, // defaults to 1 day\n      }));\n\n    // later, in a request\n    req.session.foo = \'bar\';\n    req.session.baz = \'baz2\';\n    // results in a Set-Cookie header\n\n    console.log(req.session.baz)\n    // no updates to session results in no Set-Cookie header\n\n    // and then\n    if (req.session.foo == \'bar\') {\n      // do something\n    }\n\n    // reset the session, preserving some variables\n    // if they exist. This means the session\'s creation time\n    // will be reset to now, with expiration in duration (ms).\n    req.session.reset([\'csrf\']);\n\nOptionally, if you\'d like more explicit control over the cookie parameters you can do:\n\n\n    app.use(clientSessions({\n        cookieName: \'session_state\',    // defaults to session_state\n        secret: \'blargadeeblargblarg\', // MUST be set\n        // true session duration:\n        // will expire after duration (ms)\n        // from last session.reset() or\n        // initial cookieing.\n        duration: 24 * 60 * 60 * 1000, // defaults to 1 day\n        cookie: {\n          path: \'/api\',\n          // cookie expiration parameters\n          // this gets updated on every cookie call,\n          // so it\'s not appropriate for saying that the session\n          // expires after 2 weeks, for example, since the cookie\n          // may get updated regularly and push the time back.\n          maxAge: 14 * 24 * 60 * 60 * 1000 // in ms\n          httpOnly: true, // defaults to true\n          secure: false   // defaults to false\n        }\n      }));\n',
+48 silly resolved     readmeFilename: 'README.md',
+48 silly resolved     _id: 'client-sessions@0.1.1',
+48 silly resolved     _from: 'client-sessions@' } ]
+49 info install client-sessions@0.1.1 into X:\Projects\Reader
+50 info installOne client-sessions@0.1.1
+51 verbose from cache C:\Users\Marcus\AppData\Roaming\npm-cache\client-sessions\0.1.1\package\package.json
+52 info X:\Projects\Reader\node_modules\client-sessions unbuild
+53 verbose read json X:\Projects\Reader\node_modules\client-sessions\package.json
+54 verbose tar unpack C:\Users\Marcus\AppData\Roaming\npm-cache\client-sessions\0.1.1\package.tgz
+55 silly lockFile 96e3036a-der-node-modules-client-sessions X:\Projects\Reader\node_modules\client-sessions
+56 verbose lock X:\Projects\Reader\node_modules\client-sessions C:\Users\Marcus\AppData\Roaming\npm-cache\96e3036a-der-node-modules-client-sessions.lock
+57 silly lockFile 4c93ef39-lient-sessions-0-1-1-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\client-sessions\0.1.1\package.tgz
+58 verbose lock C:\Users\Marcus\AppData\Roaming\npm-cache\client-sessions\0.1.1\package.tgz C:\Users\Marcus\AppData\Roaming\npm-cache\4c93ef39-lient-sessions-0-1-1-package-tgz.lock
+59 silly gunzTarPerm modes [ '755', '644' ]
+60 silly gunzTarPerm extractEntry package.json
+61 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+62 silly gunzTarPerm extractEntry .npmignore
+63 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+64 silly gunzTarPerm extractEntry README.md
+65 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+66 silly gunzTarPerm extractEntry LICENSE
+67 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+68 silly gunzTarPerm extractEntry .travis.yml
+69 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+70 silly gunzTarPerm extractEntry ChangeLog
+71 silly gunzTarPerm modified mode [ 'ChangeLog', 438, 420 ]
+72 silly gunzTarPerm extractEntry lib/client-sessions.js
+73 silly gunzTarPerm modified mode [ 'lib/client-sessions.js', 438, 420 ]
+74 silly gunzTarPerm extractEntry lib/ProxyHandler.js
+75 silly gunzTarPerm modified mode [ 'lib/ProxyHandler.js', 438, 420 ]
+76 silly gunzTarPerm extractEntry scripts/run_all_tests.sh
+77 silly gunzTarPerm modified mode [ 'scripts/run_all_tests.sh', 438, 420 ]
+78 silly gunzTarPerm extractEntry test/all-test.js
+79 silly gunzTarPerm modified mode [ 'test/all-test.js', 438, 420 ]
+80 verbose read json X:\Projects\Reader\node_modules\client-sessions\package.json
+81 silly lockFile 96e3036a-der-node-modules-client-sessions X:\Projects\Reader\node_modules\client-sessions
+82 silly lockFile 96e3036a-der-node-modules-client-sessions X:\Projects\Reader\node_modules\client-sessions
+83 silly lockFile 4c93ef39-lient-sessions-0-1-1-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\client-sessions\0.1.1\package.tgz
+84 silly lockFile 4c93ef39-lient-sessions-0-1-1-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\client-sessions\0.1.1\package.tgz
+85 info preinstall client-sessions@0.1.1
+86 verbose from cache X:\Projects\Reader\node_modules\client-sessions\package.json
+87 verbose readDependencies using package.json deps
+88 verbose from cache X:\Projects\Reader\node_modules\client-sessions\package.json
+89 verbose readDependencies using package.json deps
+90 verbose cache add [ 'cookies@0.2.1', null ]
+91 verbose cache add name=undefined spec="cookies@0.2.1" args=["cookies@0.2.1",null]
+92 verbose parsed url { pathname: 'cookies@0.2.1',
+92 verbose parsed url   path: 'cookies@0.2.1',
+92 verbose parsed url   href: 'cookies@0.2.1' }
+93 verbose cache add name="cookies" spec="0.2.1" args=["cookies","0.2.1"]
+94 verbose parsed url { pathname: '0.2.1', path: '0.2.1', href: '0.2.1' }
+95 verbose addNamed [ 'cookies', '0.2.1' ]
+96 verbose addNamed [ '0.2.1', '0.2.1' ]
+97 silly lockFile 36a530ed-cookies-0-2-1 cookies@0.2.1
+98 verbose lock cookies@0.2.1 C:\Users\Marcus\AppData\Roaming\npm-cache\36a530ed-cookies-0-2-1.lock
+99 verbose cache add [ 'node-proxy@0.6.0', null ]
+100 verbose cache add name=undefined spec="node-proxy@0.6.0" args=["node-proxy@0.6.0",null]
+101 verbose parsed url { pathname: 'node-proxy@0.6.0',
+101 verbose parsed url   path: 'node-proxy@0.6.0',
+101 verbose parsed url   href: 'node-proxy@0.6.0' }
+102 verbose cache add name="node-proxy" spec="0.6.0" args=["node-proxy","0.6.0"]
+103 verbose parsed url { pathname: '0.6.0', path: '0.6.0', href: '0.6.0' }
+104 verbose addNamed [ 'node-proxy', '0.6.0' ]
+105 verbose addNamed [ '0.6.0', '0.6.0' ]
+106 silly lockFile 4095cacd-node-proxy-0-6-0 node-proxy@0.6.0
+107 verbose lock node-proxy@0.6.0 C:\Users\Marcus\AppData\Roaming\npm-cache\4095cacd-node-proxy-0-6-0.lock
+108 verbose url raw cookies/0.2.1
+109 verbose url resolving [ 'https://registry.npmjs.org/', './cookies/0.2.1' ]
+110 verbose url resolved https://registry.npmjs.org/cookies/0.2.1
+111 info trying registry request attempt 1 at 20:07:21
+112 verbose etag "55PABGLZ9F9DH2KAKSG9VHG27"
+113 http GET https://registry.npmjs.org/cookies/0.2.1
+114 verbose url raw node-proxy/0.6.0
+115 verbose url resolving [ 'https://registry.npmjs.org/', './node-proxy/0.6.0' ]
+116 verbose url resolved https://registry.npmjs.org/node-proxy/0.6.0
+117 info trying registry request attempt 1 at 20:07:21
+118 verbose etag "5MW6R0GIJN11MKGLMJCC24V6G"
+119 http GET https://registry.npmjs.org/node-proxy/0.6.0
+120 http 304 https://registry.npmjs.org/node-proxy/0.6.0
+121 silly registry.get cb [ 304,
+121 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B03)',
+121 silly registry.get     etag: '"5MW6R0GIJN11MKGLMJCC24V6G"',
+121 silly registry.get     date: 'Sat, 30 Mar 2013 19:07:31 GMT',
+121 silly registry.get     'content-length': '0' } ]
+122 verbose etag node-proxy/0.6.0 from cache
+123 verbose read json C:\Users\Marcus\AppData\Roaming\npm-cache\node-proxy\0.6.0\package\package.json
+124 silly lockFile 4095cacd-node-proxy-0-6-0 node-proxy@0.6.0
+125 silly lockFile 4095cacd-node-proxy-0-6-0 node-proxy@0.6.0
+126 http 304 https://registry.npmjs.org/cookies/0.2.1
+127 silly registry.get cb [ 304,
+127 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B03)',
+127 silly registry.get     etag: '"55PABGLZ9F9DH2KAKSG9VHG27"',
+127 silly registry.get     date: 'Sat, 30 Mar 2013 19:07:31 GMT',
+127 silly registry.get     'content-length': '0' } ]
+128 verbose etag cookies/0.2.1 from cache
+129 verbose read json C:\Users\Marcus\AppData\Roaming\npm-cache\cookies\0.2.1\package\package.json
+130 silly lockFile 36a530ed-cookies-0-2-1 cookies@0.2.1
+131 silly lockFile 36a530ed-cookies-0-2-1 cookies@0.2.1
+132 silly resolved [ { name: 'node-proxy',
+132 silly resolved     version: '0.6.0',
+132 silly resolved     description: 'A module for node implementing __noSuchMethod__-type handlers, such as object overloading, as part of the Harmony Catch-All Proxies specification found at http://wiki.ecmascript.org/doku.php?id=harmony:proxies',
+132 silly resolved     keywords: [ 'interceptor', 'proxy', 'overload', '__noSuchMethod__' ],
+132 silly resolved     contributors: [ [Object], [Object], [Object] ],
+132 silly resolved     licenses: [ [Object] ],
+132 silly resolved     bugs: { url: 'http://github.com/samshull/node-proxy/issues' },
+132 silly resolved     implements: [ 'http://wiki.ecmascript.org/doku.php?id=harmony:proxies' ],
+132 silly resolved     engines: { node: '>=0.6', npm: '>= 1.1.17' },
+132 silly resolved     repositories: [ [Object] ],
+132 silly resolved     main: './lib/node-proxy.js',
+132 silly resolved     scripts:
+132 silly resolved      { install: 'node-gyp configure build',
+132 silly resolved        test: 'node test/test.js' },
+132 silly resolved     readme: 'node-proxy is an implementation of Harmony Proxies http://wiki.ecmascript.org/doku.php?id=harmony:proxies\nthat allows the developer to create "catch-all" property handlers for an object or a function in node.js.\n\nAuthor: Sam Shull  \nRepository: http://github.com/samshull/node-proxy  \nIssues: http://github.com/samshull/node-proxy/issues  \n\n*** This does not work appropriately in node versions 0.1.100 - 0.1.102. You will need to install node_version.h in $PREFIX/include/node\n\nMethods:\n\nObject create(ProxyHandler handler [, Object proto ] ) throws Error, TypeError\n\nFunction createFunction(ProxyHandler handler, Function callTrap [, Function constructTrap ] ) throws Error, TypeError\n\nBoolean isTrapping(Object obj) throws Error\n\n\nAdditional Methods (for ECMAScript 5 compatibliity): @see http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf\n\nBoolean freeze(Object obj) throws Error, TypeError\n\nBoolean seal(Object obj) throws Error, TypeError\n\nBoolean preventExtensions(Object obj) throws Error, TypeError\n\nBoolean isFrozen(Object obj) throws Error, TypeError\n\nBoolean isSealed(Object obj) throws Error, TypeError\n\nBoolean isExtensible(Object obj) throws Error, TypeError\n\nPropertyDescriptor getOwnPropertyDescriptor(Object obj, String name) throws Error, TypeError\n\nBoolean defineProperty(Object obj, String name, PropertyDescriptor pd) throws Error, TypeError\n\nBoolean defineProperties(Object obj, Object descriptors) throws Error, TypeError\n\n\nMore methods:\n\nObject hidden(Object obj, String name [, Object value ] ) throws Error\n- Set or retrieve a hidden property on an Object\n\nObject clone(Object obj) throws Error\n- Create a shallow copy of an Object\n\nBoolean isProxy(Object obj)\n- determine if an object was created by Proxy\n\nBoolean setPrototype(Object obj, Object obj) throws Error\n-set the prototype of a given object to the second given object\n',
+132 silly resolved     readmeFilename: 'README.md',
+132 silly resolved     _id: 'node-proxy@0.6.0',
+132 silly resolved     _from: 'node-proxy@0.6.0' },
+132 silly resolved   { name: 'cookies',
+132 silly resolved     version: '0.2.1',
+132 silly resolved     description: 'Cookies, optionally signed using Keygrip.',
+132 silly resolved     main: './lib/cookies',
+132 silly resolved     dependencies: {},
+132 silly resolved     devDependencies: { express: '*', keygrip: '*' },
+132 silly resolved     engines: { node: '*' },
+132 silly resolved     author:
+132 silly resolved      { name: 'Jed Schmidt',
+132 silly resolved        email: 'tr@nslator.jp',
+132 silly resolved        url: 'http://jed.is' },
+132 silly resolved     homepage: 'https://github.com/jed/cookies',
+132 silly resolved     repository: { type: 'git', url: 'git://github.com/jed/cookies.git' },
+132 silly resolved     scripts: { test: 'node ./test/http.js' },
+132 silly resolved     readme: 'Cookies\n=======\n\nCookies is a [node.js](http://nodejs.org/) module for getting and setting HTTP(S) cookies. Cookies can be signed to prevent tampering, using [Keygrip](https://github.com/jed/keygrip). It can be used with the built-in node.js HTTP library, or as Connect/Express middleware.\n\n## Requirements\n\n* [node.js](http://nodejs.org/), tested with 0.4.1\n\n## Install\n\n    $ npm install cookies\n    \n## Features\n\n* **Lazy**: Since cookie verification against multiple keys could be expensive, cookies are only verified lazily when accessed, not eagerly on each request.\n\n* **Secure**: All cookies are `httponly` by default, and cookies sent over SSL are `secure` by default. An error will be thrown if you try to send secure cookies over an insecure socket.\n\n* **Unobtrusive**: Signed cookies are stored the same way as unsigned cookies, instead of in an obfuscated signing format. An additional signature cookie is stored for each signed cookie, using a standard naming convention (_cookie-name_`.sig`). This allows other libraries to access the original cookies without having to know the signing mechanism.\n\n* **Agnostic**: This library is optimized for use with [Keygrip](https://github.com/jed/keygrip), but does not require it; you can implement your own signing scheme instead if you like and use this library only to read/write cookies. Factoring the signing into a separate library encourages code reuse and allows you to use the same signing library for other areas where signing is needed, such as in URLs.\n\n## API\n\n### cookies = new Cookies( request, response, [ Object keygrip ] )\n\nThis creates a cookie jar corresponding to the current _request_ and _response_. A [Keygrip](https://github.com/jed/keygrip) object can optionally be passed as the third argument _keygrip_ to enable cryptographic signing based on SHA1 HMAC, using rotated credentials.\n\nNote that since this only saves parameters without any other processing, it is very lightweight. Cookies are only parsed on demand when they are accessed.\n\n### express.createServer( Cookies.express([ Object keygrip ] ) )\n\nThis adds cookie support as a Connect middleware layer for use in Express apps, allowing inbound cookies to be read using `req.cookies.get` and outbound cookies to be set using `res.cookies.set`.\n\n### cookies.get( name, [ options ] )\n\nThis extracts the cookie with the given name from the `Cookie` header in the request. If such a cookie exists, its value is returned. Otherwise, nothing is returned.\n\n`{ signed: true }` can optionally be passed as the second parameter _options_. In this case, a signature cookie (a cookie of same name ending with the `.sig` suffix appended) is fetched. If no such cookie exists, nothing is returned.\n\nIf the signature cookie _does_ exist, the provided [Keygrip](https://github.com/jed/keygrip) object is used to check whether the hash of _cookie-name_=_cookie-value_ matches that of any registered key:\n\n* If the signature cookie hash matches the first key, the original cookie value is returned.\n* If the signature cookie hash matches any other key, the original cookie value is returned AND an outbound header is set to update the signature cookie\'s value to the hash of the first key. This enables automatic freshening of signature cookies that have become stale due to key rotation.\n* If the signature cookie hash does not match any key, nothing is returned, and an outbound header with an expired date is used to delete the cookie.\n\n### cookies.set( name, [ value ], [ options ] )\n\nThis sets the given cookie in the response and returns the current context to allow chaining.\n\nIf the _name_ is omitted, an outbound header with an expired date is used to delete the cookie.\n\nIf the _options_ object is provided, it will be used to generate the outbound cookie header as follows:\n\n* `expires`: a `Date` object indicating the cookie\'s expiration date (expires at the end of session by default).\n* `path`: a string indicating the path of the cookie (`/` by default).\n* `domain`: a string indicating the domain of the cookie (no default).\n* `secure`: a boolean indicating whether the cookie is only to be sent over HTTPS (`false` by default for HTTP, `true` by default for HTTPS).\n* `httpOnly`: a boolean indicating whether the cookie is only to be sent over HTTP(S), and not made available to client JavaScript (`true` by default).\n* `signed`: a boolean indicating whether the cookie is to be signed (`false` by default). If this is true, another cookie of the same name with the `.sig` suffix appended will also be sent, with a 27-byte url-safe base64 SHA1 value representing the hash of _cookie-name_=_cookie-value_ against the first [Keygrip](https://github.com/jed/keygrip) key. This signature key is used to detect tampering the next time a cookie is received.\n\n## Example\n\n```javascript\n// from ./test.js\nserver = http.createServer( function( req, res ) {\n  var cookies = new Cookies( req, res, keys )\n    , unsigned, signed, tampered\n  \n  if ( req.url == "/set" ) {\n    cookies\n      // set a regular cookie\n      .set( "unsigned", "foo", { httpOnly: false } )\n\n      // set a signed cookie\n      .set( "signed", "bar", { signed: true } )\n\n      // mimic a signed cookie, but with a bogus signature\n      .set( "tampered", "baz" )\n      .set( "tampered.sig", "bogus" )\n\n    res.writeHead( 302, { "Location": "/" } )\n    return res.end( "Now let\'s check." )\n  }\n  \n  unsigned = cookies.get( "unsigned" )\n  signed = cookies.get( "signed", { signed: true } )\n  tampered = cookies.get( "tampered", { signed: true } )\n  \n  assert.equal( unsigned, "foo" )\n  assert.equal( signed, "bar" )\n  assert.notEqual( tampered, "baz" )\n  assert.equal( tampered, undefined )\n\n  res.writeHead( 200, { "Content-Type": "text/plain" } )\n  res.end(\n    "unsigned expected: foo\\n\\n" +\n    "unsigned actual: " + unsigned + "\\n\\n" +\n    "signed expected: bar\\n\\n" +\n    "signed actual: " + signed + "\\n\\n" +\n    "tampered expected: undefined\\n\\n"+\n    "tampered: " + tampered + "\\n\\n"\n  )\n})\n```\n\nCopyright\n---------\n\nCopyright (c) 2012 Jed Schmidt. See LICENSE.txt for details.\n\nSend any questions or comments [here](http://twitter.com/jedschmidt).',
+132 silly resolved     readmeFilename: 'README.md',
+132 silly resolved     _id: 'cookies@0.2.1',
+132 silly resolved     _from: 'cookies@0.2.1' } ]
+133 info install node-proxy@0.6.0 into X:\Projects\Reader\node_modules\client-sessions
+134 info install cookies@0.2.1 into X:\Projects\Reader\node_modules\client-sessions
+135 info installOne node-proxy@0.6.0
+136 info installOne cookies@0.2.1
+137 verbose from cache C:\Users\Marcus\AppData\Roaming\npm-cache\node-proxy\0.6.0\package\package.json
+138 info X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy unbuild
+139 verbose read json X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy\package.json
+140 verbose from cache C:\Users\Marcus\AppData\Roaming\npm-cache\cookies\0.2.1\package\package.json
+141 info X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies unbuild
+142 verbose read json X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies\package.json
+143 verbose tar unpack C:\Users\Marcus\AppData\Roaming\npm-cache\node-proxy\0.6.0\package.tgz
+144 silly lockFile a7a4b80a-sessions-node-modules-node-proxy X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy
+145 verbose lock X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy C:\Users\Marcus\AppData\Roaming\npm-cache\a7a4b80a-sessions-node-modules-node-proxy.lock
+146 silly lockFile d4715e18-che-node-proxy-0-6-0-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\node-proxy\0.6.0\package.tgz
+147 verbose lock C:\Users\Marcus\AppData\Roaming\npm-cache\node-proxy\0.6.0\package.tgz C:\Users\Marcus\AppData\Roaming\npm-cache\d4715e18-che-node-proxy-0-6-0-package-tgz.lock
+148 verbose tar unpack C:\Users\Marcus\AppData\Roaming\npm-cache\cookies\0.2.1\package.tgz
+149 silly lockFile 6f6b5f12-nt-sessions-node-modules-cookies X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies
+150 verbose lock X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies C:\Users\Marcus\AppData\Roaming\npm-cache\6f6b5f12-nt-sessions-node-modules-cookies.lock
+151 silly lockFile fdf3f48f--cache-cookies-0-2-1-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\cookies\0.2.1\package.tgz
+152 verbose lock C:\Users\Marcus\AppData\Roaming\npm-cache\cookies\0.2.1\package.tgz C:\Users\Marcus\AppData\Roaming\npm-cache\fdf3f48f--cache-cookies-0-2-1-package-tgz.lock
+153 silly gunzTarPerm modes [ '755', '644' ]
+154 silly gunzTarPerm modes [ '755', '644' ]
+155 silly gunzTarPerm extractEntry package.json
+156 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+157 silly gunzTarPerm extractEntry package.json
+158 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+159 silly gunzTarPerm extractEntry .npmignore
+160 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+161 silly gunzTarPerm extractEntry README.md
+162 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+163 silly gunzTarPerm extractEntry .npmignore
+164 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+165 silly gunzTarPerm extractEntry README.md
+166 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+167 silly gunzTarPerm extractEntry binding.gyp
+168 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+169 silly gunzTarPerm extractEntry examples/autoload-namespace/autoload-namespace.js
+170 silly gunzTarPerm modified mode [ 'examples/autoload-namespace/autoload-namespace.js', 438, 420 ]
+171 silly gunzTarPerm extractEntry lib/cookies.js
+172 silly gunzTarPerm modified mode [ 'lib/cookies.js', 438, 420 ]
+173 silly gunzTarPerm extractEntry LICENSE.txt
+174 silly gunzTarPerm modified mode [ 'LICENSE.txt', 438, 420 ]
+175 silly gunzTarPerm extractEntry examples/autoload-namespace/autoload-test.js
+176 silly gunzTarPerm modified mode [ 'examples/autoload-namespace/autoload-test.js', 438, 420 ]
+177 silly gunzTarPerm extractEntry examples/autoload-namespace/org/w3c/DOM/Document.js
+178 silly gunzTarPerm modified mode [ 'examples/autoload-namespace/org/w3c/DOM/Document.js',
+178 silly gunzTarPerm   438,
+178 silly gunzTarPerm   420 ]
+179 silly gunzTarPerm extractEntry test/express.js
+180 silly gunzTarPerm modified mode [ 'test/express.js', 438, 420 ]
+181 silly gunzTarPerm extractEntry test/http.js
+182 silly gunzTarPerm modified mode [ 'test/http.js', 438, 420 ]
+183 silly gunzTarPerm extractEntry examples/autoload-namespace/org/w3c/DOM/Document/String/Test.js
+184 silly gunzTarPerm modified mode [ 'examples/autoload-namespace/org/w3c/DOM/Document/String/Test.js',
+184 silly gunzTarPerm   438,
+184 silly gunzTarPerm   420 ]
+185 silly gunzTarPerm extractEntry lib/node-proxy.js
+186 silly gunzTarPerm modified mode [ 'lib/node-proxy.js', 438, 420 ]
+187 silly gunzTarPerm extractEntry LICENSE.txt
+188 silly gunzTarPerm modified mode [ 'LICENSE.txt', 438, 420 ]
+189 silly gunzTarPerm extractEntry src/node-proxy.cc
+190 silly gunzTarPerm modified mode [ 'src/node-proxy.cc', 438, 420 ]
+191 silly gunzTarPerm extractEntry src/node-proxy.h
+192 silly gunzTarPerm modified mode [ 'src/node-proxy.h', 438, 420 ]
+193 silly gunzTarPerm extractEntry test/test.js
+194 silly gunzTarPerm modified mode [ 'test/test.js', 438, 420 ]
+195 verbose read json X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies\package.json
+196 silly lockFile 6f6b5f12-nt-sessions-node-modules-cookies X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies
+197 silly lockFile 6f6b5f12-nt-sessions-node-modules-cookies X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies
+198 silly lockFile fdf3f48f--cache-cookies-0-2-1-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\cookies\0.2.1\package.tgz
+199 silly lockFile fdf3f48f--cache-cookies-0-2-1-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\cookies\0.2.1\package.tgz
+200 info preinstall cookies@0.2.1
+201 verbose from cache X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies\package.json
+202 verbose readDependencies using package.json deps
+203 verbose from cache X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies\package.json
+204 verbose readDependencies using package.json deps
+205 silly resolved []
+206 verbose about to build X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies
+207 info build X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies
+208 verbose from cache X:\Projects\Reader\node_modules\client-sessions\node_modules\cookies\package.json
+209 verbose linkStuff [ false,
+209 verbose linkStuff   false,
+209 verbose linkStuff   false,
+209 verbose linkStuff   'X:\\Projects\\Reader\\node_modules\\client-sessions\\node_modules' ]
+210 info linkStuff cookies@0.2.1
+211 verbose linkBins cookies@0.2.1
+212 verbose linkMans cookies@0.2.1
+213 verbose rebuildBundles cookies@0.2.1
+214 info install cookies@0.2.1
+215 info postinstall cookies@0.2.1
+216 verbose read json X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy\package.json
+217 silly lockFile a7a4b80a-sessions-node-modules-node-proxy X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy
+218 silly lockFile a7a4b80a-sessions-node-modules-node-proxy X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy
+219 silly lockFile d4715e18-che-node-proxy-0-6-0-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\node-proxy\0.6.0\package.tgz
+220 silly lockFile d4715e18-che-node-proxy-0-6-0-package-tgz C:\Users\Marcus\AppData\Roaming\npm-cache\node-proxy\0.6.0\package.tgz
+221 info preinstall node-proxy@0.6.0
+222 verbose from cache X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy\package.json
+223 verbose readDependencies using package.json deps
+224 verbose from cache X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy\package.json
+225 verbose readDependencies using package.json deps
+226 silly resolved []
+227 verbose about to build X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy
+228 info build X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy
+229 verbose from cache X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy\package.json
+230 verbose linkStuff [ false,
+230 verbose linkStuff   false,
+230 verbose linkStuff   false,
+230 verbose linkStuff   'X:\\Projects\\Reader\\node_modules\\client-sessions\\node_modules' ]
+231 info linkStuff node-proxy@0.6.0
+232 verbose linkBins node-proxy@0.6.0
+233 verbose linkMans node-proxy@0.6.0
+234 verbose rebuildBundles node-proxy@0.6.0
+235 info install node-proxy@0.6.0
+236 verbose unsafe-perm in lifecycle true
+237 silly exec cmd "/c" "node-gyp configure build"
+238 silly cmd,/c,node-gyp configure build,X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy spawning
+239 info node-proxy@0.6.0 Failed to exec install script
+240 info X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy unbuild
+241 verbose from cache X:\Projects\Reader\node_modules\client-sessions\node_modules\node-proxy\package.json
+242 info preuninstall node-proxy@0.6.0
+243 info uninstall node-proxy@0.6.0
+244 verbose false,X:\Projects\Reader\node_modules,X:\Projects\Reader\node_modules\client-sessions\node_modules unbuild node-proxy@0.6.0
+245 info postuninstall node-proxy@0.6.0
+246 verbose about to build X:\Projects\Reader\node_modules\client-sessions
+247 info X:\Projects\Reader\node_modules\client-sessions unbuild
+248 verbose from cache X:\Projects\Reader\node_modules\client-sessions\package.json
+249 info preuninstall client-sessions@0.1.1
+250 info uninstall client-sessions@0.1.1
+251 verbose true,X:\Projects\Reader\node_modules,X:\Projects\Reader\node_modules unbuild client-sessions@0.1.1
+252 info postuninstall client-sessions@0.1.1
+253 error node-proxy@0.6.0 install: `node-gyp configure build`
+253 error `cmd "/c" "node-gyp configure build"` failed with 1
+254 error Failed at the node-proxy@0.6.0 install script.
+254 error This is most likely a problem with the node-proxy package,
+254 error not with npm itself.
+254 error Tell the author that this fails on your system:
+254 error     node-gyp configure build
+254 error You can get their info via:
+254 error     npm owner ls node-proxy
+254 error There is likely additional logging output above.
+255 error System Windows_NT 6.2.9200
+256 error command "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "client-sessions"
+257 error cwd X:\Projects\Reader
+258 error node -v v0.8.21
+259 error npm -v 1.2.11
+260 error code ELIFECYCLE
+261 verbose exit [ 1, true ]
