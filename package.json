@@ -10,6 +10,7 @@
     "jade": "*",
       "mysql": "*",
       "async": "*",
-      "node-uuid": "*"
+      "node-uuid": "*",
+      "oauth": "*"
   }
 }
