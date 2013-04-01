@@ -4,6 +4,7 @@ html
         title= title
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
     body
         .navbar.navbar-inverse.navbar-fixed-top
             .navbar-inner
@@ -15,20 +16,19 @@ html
                                 a(href="#",class="navbar-link") #{user.name}
                         - else
                             p.navbar-text.pull-right Not logged in
-            .container-fluid
-                - if(!user.isAuthenticated)
+        .container-fluid
+            - if(!user.isAuthenticated)
                     .hero-unit
                         h1 Rss aggregator
                         p Part learning, part useful
                         p
                             a(href="/auth/twitter")
                                 img(src="/images/sign-in-with-twitter-gray.png")
-                - else
-                    .row-fluid
-                        .span3
-                            well.sidebar-nav
-                        .span9
-                            .row-fluid
-
-
-
+            - else
+                .row-fluid
+                    include list
+                    include summary
+        script(src="/javascripts/jquery-1.9.1.min.js", type="text/javascript")
+        script(src="/javascripts/require.js", type="text/javascript")
+        - if(user.isAuthenticated)
+                script(src="/javascripts/startup.js", type="text/javascript")

@@ -1,15 +1,20 @@
-module.exports = function(option)
+var users = require('./user.js');
+
+module.exports = function()
 {
     var OAuth= require('oauth').OAuth;
-    var oa = new OAuth(
-        "https://api.twitter.com/oauth/request_token",
-        "https://api.twitter.com/oauth/access_token",
-        "xNXsnRK7jMea8yAYLiYKlA",
-        "qLH3sCHCVg50VksmvRdagKiBE2iPOMTGPg19As9aM",
-        "1.0",
-        "http://dev.ontargo.se:3000/auth/twitter/callback", // "http://Reader-env-wfirpbgaxz.elasticbeanstalk.com/auth/twitter/callback",
-        "HMAC-SHA1"
-    );
+    var oa = function(){
+        return new OAuth(
+            "https://api.twitter.com/oauth/request_token",
+            "https://api.twitter.com/oauth/access_token",
+            "xNXsnRK7jMea8yAYLiYKlA",
+            "qLH3sCHCVg50VksmvRdagKiBE2iPOMTGPg19As9aM",
+            "1.0",
+            process.env.CALLBACK || "http://Reader-env-wfirpbgaxz.elasticbeanstalk.com/auth/twitter/callback",
+            "HMAC-SHA1"
+        );
+    }
+
 
     var public = {};
         public.validate = function(req, res, next){
@@ -17,7 +22,7 @@ module.exports = function(option)
             req.session.oauth.verifier = req.query.oauth_verifier;
             var oauth = req.session.oauth;
 
-            oa.getOAuthAccessToken(oauth.token,oauth.token_secret,oauth.verifier,
+            oa().getOAuthAccessToken(oauth.token,oauth.token_secret,oauth.verifier,
                 function(error, oauth_access_token, oauth_access_token_secret, results){
                     if (error){
                         console.log(error);
@@ -30,9 +35,10 @@ module.exports = function(option)
                         req.session.user = {
                             id: results.user_id,
                             name: results.screen_name,
+                            authority : 'twitter',
                             isAuthenticated:true
                         };
-                        option.login(req.session.user);
+                        users.userLoggedIn(req.session.user);
                         res.redirect('/');
                     }
                 }
@@ -42,7 +48,7 @@ module.exports = function(option)
     };
 
         public.authenticate = function(req, res){
-        oa.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results){
+        oa().getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results){
             if (error) {
                 console.log(error);
                 res.send("yeah no. didn't work.")
@@ -59,5 +65,5 @@ module.exports = function(option)
     };
     return public;
 
-}
+} ();
 

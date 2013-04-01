@@ -8,9 +8,15 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   ,users=require('./user.js')
-  ,twitter = require('./twitter.js')({login: users.userLoggedIn});
+  ,twitter = require('./twitter.js')
+    ,db = require('./datalayer/db.js');
 
 var app = express();
+app.configure('development', function() {
+    console.log('Using development settings.');
+    var dev = require('./devenv.js');
+    app.use(express.errorHandler());
+});
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -27,11 +33,6 @@ app.configure(function(){
 });
 
 
-app.configure('development', function() {
-    console.log('Using development settings.');
-    var dev = require('./devenv.js');
-    app.use(express.errorHandler());
-});
 
 app.configure('production', function() {
     console.log('Using production settings.');
@@ -70,7 +71,8 @@ function init() {
 app.get('/auth/twitter',twitter.authenticate);
 
 app.get('/auth/twitter/callback', twitter.validate);
-
+app.get('/api/feeds', users.feeds);
 init();
+
 
 
