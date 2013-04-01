@@ -1,0 +1,5 @@
+.elasticbeanstalk/
+.gitignore
+node_modules/
+.idea/
+.idea\workspace.xml
