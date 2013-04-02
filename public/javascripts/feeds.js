@@ -1,7 +1,7 @@
 define(
     [],
     function () {
-        return function Feeds() {
+        return function Feeds(ko) {
             var self=this;
             self.feedArray = ko.observableArray([]);
 

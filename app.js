@@ -7,9 +7,9 @@ var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  ,users=require('./user.js')
-  ,twitter = require('./twitter.js')
-    ,db = require('./datalayer/db.js');
+  ,users=require('./private/user.js')
+  ,twitter = require('./private/twitter.js')
+    ,db = require('./private/datalayer/db.js');
 
 var app = express();
 app.configure('development', function() {
