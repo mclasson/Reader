@@ -2,4 +2,4 @@
     .well.sidebar-nav
         ul(class="nav nav-list", data-bind="foreach:feedArray")
             li
-                a(href="#", data-bind="text: displayname")
+                a(href="#", data-bind="text: feedName, data-id: idfeed")

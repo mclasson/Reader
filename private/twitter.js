@@ -1,9 +1,8 @@
 var users = require('./user.js');
 
-module.exports = function()
-{
-    var OAuth= require('oauth').OAuth;
-    var oa = function(){
+module.exports = function () {
+    var OAuth = require('oauth').OAuth;
+    var oa = function () {
         return new OAuth(
             "https://api.twitter.com/oauth/request_token",
             "https://api.twitter.com/oauth/access_token",
@@ -17,29 +16,34 @@ module.exports = function()
 
 
     var public = {};
-        public.validate = function(req, res, next){
+    public.validate = function (req, res, next) {
+        console.log('validating...');
         if (req.session.oauth) {
             req.session.oauth.verifier = req.query.oauth_verifier;
             var oauth = req.session.oauth;
 
-            oa().getOAuthAccessToken(oauth.token,oauth.token_secret,oauth.verifier,
-                function(error, oauth_access_token, oauth_access_token_secret, results){
-                    if (error){
+            oa().getOAuthAccessToken(oauth.token, oauth.token_secret, oauth.verifier,
+                function (error, oauth_access_token, oauth_access_token_secret, results) {
+                    if (error) {
                         console.log(error);
                         res.send("yeah something broke.");
                     } else {
                         req.session.oauth.access_token = oauth_access_token;
                         req.session.oauth.access_token_secret = oauth_access_token_secret;
-                        console.log(results);
+                        console.log('validated: ' + results);
                         req.session.authority = 'twitter';
                         req.session.user = {
-                            id: results.user_id,
+                            remoteId: results.user_id,
                             name: results.screen_name,
-                            authority : 'twitter',
-                            isAuthenticated:true
+                            authority: 'twitter',
+                            isAuthenticated: true
                         };
-                        users.userLoggedIn(req.session.user);
-                        res.redirect('/');
+                        console.log('calling users.userLoggedIn');
+                        users.userLoggedIn(req.session.user, function (userid) {
+                            console.log("userid " + userid);
+                            req.session.user.localId = userid;
+                            res.redirect('/');
+                        });
                     }
                 }
             );
@@ -47,8 +51,8 @@ module.exports = function()
             next(new Error("you're not supposed to be here."))
     };
 
-        public.authenticate = function(req, res){
-        oa().getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results){
+    public.authenticate = function (req, res) {
+        oa().getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
             if (error) {
                 console.log(error);
                 res.send("yeah no. didn't work.")
@@ -59,11 +63,11 @@ module.exports = function()
 
                 req.session.oauth.token_secret = oauth_token_secret;
 
-                res.redirect('https://twitter.com/oauth/authenticate?oauth_token='+oauth_token)
+                res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token)
             }
         });
     };
     return public;
 
-} ();
+}();
 

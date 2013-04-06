@@ -8,6 +8,7 @@ define(
             self.loadFeeds = function(feeds){
                 for(var i=0;i<feeds.length;i++){
                     self.feedArray().push(feeds[i]);
+                    console.log(feeds[i]);
                 }
             }
 
