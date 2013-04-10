@@ -9,7 +9,7 @@ module.exports = function () {
             "xNXsnRK7jMea8yAYLiYKlA",
             "qLH3sCHCVg50VksmvRdagKiBE2iPOMTGPg19As9aM",
             "1.0",
-            process.env.CALLBACK || "http://Reader-env-wfirpbgaxz.elasticbeanstalk.com/auth/twitter/callback",
+            process.env.NODE_ENV === 'development' ? process.env.CALLBACK : "http://Reader-env-wfirpbgaxz.elasticbeanstalk.com/auth/twitter/callback",
             "HMAC-SHA1"
         );
     }
