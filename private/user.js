@@ -7,7 +7,7 @@ module.exports = function(){
     };
     public.feeds = function(req,res){
         db.getUserFeeds(req.session.user,function(result){
-            console.log(result);
+
             res.json({feeds: result });
         });
 

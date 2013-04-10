@@ -1,0 +1,22 @@
+#opml.modal.hide.fade
+    form.form-horizontal(enctype="multipart/form-data", method="POST", action="/api/opml")
+        .modal-header
+             button(type="button", class="close", data-dismiss="modal", aria-hidden="true") ×
+             h3 Upload your OPML file
+
+        .modal-body
+
+                .control-group
+                .controls
+                     DIV(class="fileupload fileupload-new" ,data-provides="fileupload")
+                        span.btn.btn-file
+                            span.fileupload-new Select file
+                            span.fileupload-exists Change
+                            input#uploadfilename(type="file", name="file")
+                        span.fileupload-preview
+                            a(href="#", class="close fileupload-exists", data-dismiss="fileupload", style="float: none") ×
+
+        .modal-footer
+             a(href="#", class="btn", data-dismiss="fileupload") Close
+             button#upload(class="btn btn-primary") Upload
+

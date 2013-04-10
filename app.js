@@ -24,7 +24,7 @@ app.configure(function () {
     app.set('view engine', 'jade');
     app.use(express.favicon());
     app.use(express.logger('dev'));
-    app.use(express.bodyParser());
+    app.use(express.bodyParser({uploadDir:'./public/uploads'}));
     app.use(express.methodOverride());
     app.use(express.cookieParser('Df45tYLBnmi1+0dLibMN'));
     app.use(express.session());
@@ -59,6 +59,8 @@ function init() {
 
         next();
     });
+
+
     app.get('/', routes.index);
 
     http.createServer(app).listen(app.get('port'), function () {
@@ -71,6 +73,24 @@ app.get('/auth/twitter', twitter.authenticate);
 
 app.get('/auth/twitter/callback', twitter.validate);
 app.get('/api/feeds', users.feeds);
+app.post('/api/opml', function(req,res){
+
+    console.log(req.session);
+    var fs = require('fs');
+
+    if(req.files.file && req.files.file.type === 'text/xml')
+    {
+             var Opml = require('./private/opml.js');
+            var opml = new Opml();
+            opml.readopml(req.session.user.localId, req.files.file.path,function(result){
+                console.log('done');
+                res.redirect('/');
+            });
+        }
+
+
+
+});
 init();
 
 
