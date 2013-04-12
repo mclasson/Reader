@@ -32,6 +32,8 @@ html
                         p
                             a(href="/auth/twitter")
                                 img(src="/images/sign-in-with-twitter-gray.png")
+                        p #{process.env.NODE_ENV}
+
             - else
                 .row-fluid
                     include list
