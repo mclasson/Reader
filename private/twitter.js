@@ -3,6 +3,7 @@ var users = require('./user.js');
 module.exports = function () {
     var OAuth = require('oauth').OAuth;
     var oa = function () {
+        console.log(process.env.NODE_ENV === 'development' ? process.env.CALLBACK : "http://Reader-env-wfirpbgaxz.elasticbeanstalk.com/auth/twitter/callback");
         return new OAuth(
             "https://api.twitter.com/oauth/request_token",
             "https://api.twitter.com/oauth/access_token",
@@ -12,12 +13,12 @@ module.exports = function () {
             process.env.NODE_ENV === 'development' ? process.env.CALLBACK : "http://Reader-env-wfirpbgaxz.elasticbeanstalk.com/auth/twitter/callback",
             "HMAC-SHA1"
         );
-    }
+    };
 
 
     var public = {};
     public.validate = function (req, res, next) {
-        console.log('validating...');
+        console.log('validating...',req.query,req.session);
         if (req.session.oauth) {
             req.session.oauth.verifier = req.query.oauth_verifier;
             var oauth = req.session.oauth;
@@ -48,14 +49,15 @@ module.exports = function () {
                 }
             );
         } else
-            next(new Error("you're not supposed to be here."))
+            next(new Error("you're not supposed to be here."));
     };
 
     public.authenticate = function (req, res) {
         oa().getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
+            console.log('setting request session',req.session);
             if (error) {
                 console.log(error);
-                res.send("yeah no. didn't work.")
+                res.send("yeah no. didn't work.");
             }
             else {
                 req.session.oauth = {};
@@ -63,7 +65,9 @@ module.exports = function () {
 
                 req.session.oauth.token_secret = oauth_token_secret;
 
-                res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token)
+                console.log('setting request session',req.session);
+                res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token);
+                return;
             }
         });
     };

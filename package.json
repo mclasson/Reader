@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "Reedlr",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,6 +12,9 @@
     "async": "*",
     "node-uuid": "*",
     "oauth": "*",
-    "feedparser": "~0.15.2"
+    "feedparser": "~0.15.2",
+    "request": "~2.16.6",
+    "opmlparser": "~0.5.0",
+    "connect-mongo": "~0.3.2"
   }
 }

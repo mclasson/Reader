@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>Prenumerationer för Marcus Classon i Google Reader</title>
+    </head>
+    <body>
+        <outline title="Sharepoint" text="Sharepoint">
+            <outline text="Ahhh!! My Outlook Ribbon Does Not Show Up! -"
+                title="Ahhh!! My Outlook Ribbon Does Not Show Up! -"
+                type="rss"
+                xmlUrl="http://www.thesharepointblog.net/_layouts/listfeed.aspx?List=815f255a-d0ef-4258-be2a-28487dc9975c" htmlUrl="http://www.thesharepointblog.net/Lists/Posts/AllPosts.aspx"/>
+            <outline text="Andrew Connell [MVP SharePoint]"
+                title="Andrew Connell [MVP SharePoint]" type="rss"
+                xmlUrl="http://feeds.feedburner.com/AndrewConnell" htmlUrl="http://www.andrewconnell.com:80/blog"/>
+            <outline text="Dashboard - SharePoint Dev Wiki"
+                title="Dashboard - SharePoint Dev Wiki" type="rss"
+                xmlUrl="http://feeds.feedburner.com/SharePointDevWiki" htmlUrl="http://www.nothingbutsharepoint.com"/>
+            <outline
+                text="Home | SharePoint Developer Center | SDK, Training, Code| MSDN"
+                title="Home | SharePoint Developer Center | SDK, Training, Code| MSDN"
+                type="rss"
+                xmlUrl="http://www.microsoft.com/feeds/msdn/en-us/sharepoint/rss.xml" htmlUrl="http://msdn.microsoft.com/en-US/sharepoint"/>
+            <outline
+                text="Martin Hatch {Tales from a SharePoint Evangelist}"
+                title="Martin Hatch {Tales from a SharePoint Evangelist}"
+                type="rss"
+                xmlUrl="http://www.martinhatch.com/feeds/posts/default" htmlUrl="http://www.martinhatch.com/"/>
+            <outline
+                text="Missing Content Type fields in the Document Information Panel ..."
+                title="Missing Content Type fields in the Document Information Panel ..."
+                type="rss"
+                xmlUrl="http://feeds2.feedburner.com/novolocus" htmlUrl="http://www.novolocus.com"/>
+            <outline text="SharePoint" title="SharePoint" type="rss"
+                xmlUrl="http://www.sharepointboris.net/feed/" htmlUrl="http://www.sharepointboris.net"/>
+        </outline>
+    </body>
+</opml>
