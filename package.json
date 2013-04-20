@@ -8,9 +8,10 @@
   "dependencies": {
     "express": "3.1.0",
     "jade": "*",
-      "mysql": "*",
-      "async": "*",
-      "node-uuid": "*",
-      "oauth": "*"
+    "mysql": "*",
+    "async": "*",
+    "node-uuid": "*",
+    "oauth": "*",
+    "feedparser": "~0.15.2"
   }
 }
